@@ -1,8 +1,10 @@
 import './App.css';
-import useDadJokesWithFetchApi from './hooks/useDadJokesWithFetchApi'
+// import useDadJokesWithFetchApi from './hooks/useDadJokesWithFetchApi'
+import useDadJokesWithAxios from './hooks/useDadJokesWithAxios'
 
 function App() {
-    const [ joke, setJoke ] = useDadJokesWithFetchApi()
+    // const [ joke, setJoke ] = useDadJokesWithFetchApi()
+    const [ joke, setJoke ] = useDadJokesWithAxios()
 
     const handleGenerateNewJoke = () =>{
         console.log("generate new joke clicked")

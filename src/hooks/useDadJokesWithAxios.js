@@ -1,20 +1,15 @@
 import { useState, useEffect } from 'react'
+import api from '../api/jokes'
 
-const useDadJokes = () =>{
+const useDadJokesWithAxios = () =>{
     const [joke, setJoke] = useState("")
 
     useEffect(()=>{
-        const fetchJokes = () =>{
-            fetch('https://icanhazdadjoke.com/', {
-                method: 'GET',
-                headers: {
-                    Accept: 'application/json'
-                }
-            })
-                .then(response => response.json())
-                .then(data => {
-                    setJoke(data.joke)
-                })
+        const fetchJokes = async () =>{
+            const response = await api.get('/', {
+                      headers: { Accept: "application/json" },
+                    });
+            setJoke(response.data.joke)
         }
 
         fetchJokes()
@@ -23,4 +18,4 @@ const useDadJokes = () =>{
     return [joke]
 }
 
-export default useDadJokes
+export default useDadJokesWithAxios

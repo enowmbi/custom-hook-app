@@ -20,7 +20,7 @@ const useWindowSize = () =>{
         return cleanUp
     }, [])
 
-    return windowSize //not that windowSize is an object {width, height}
+    return windowSize //note that windowSize is an object {width, height}
 }
 
 export default useWindowSize
